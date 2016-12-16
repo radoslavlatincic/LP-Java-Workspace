@@ -19,14 +19,42 @@ public class Robot {
 		}
 	}
 
+	private class Eye{
+		
+		public void watch(boolean left,boolean right) {
+			if (left && right)
+			{
+		System.out.println("Posmatranje....");
+			}else if(left)
+			{
+				System.out.println("Vidi samo na lijevo oko....");	
+			}else if(right)
+			{
+				System.out.println("Vidi samo na desno oko....");	
+			}
+			
+	}
+	}
 	public Robot(int id) {
 		this.id = id;
 	}
 	
-	public void start() {
-		System.out.println("Pokretanje robota " + id);
 		
+	public void start(boolean left,boolean right) {
+		System.out.println("Pokretanje robota " + id);
 		Brain brain = new Brain();
 		brain.think();
+		Eye lefteye=new Eye();
+		Eye righteye=new Eye();
+		if (left && right){
+			lefteye.watch(left,right);
+			}else if(left){
+				lefteye.watch(left,right);
+			}else if(right){
+				lefteye.watch(left,right);
+			}
+		
+		
 	}
+	
 }
